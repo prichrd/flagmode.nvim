@@ -1,0 +1,65 @@
+*flagmode.txt* Toggle configurations quickly.
+*flagmode.nvim*
+
+==============================================================================
+CONTENTS                                                   *flagmode-contents*
+
+  1. Intro....................................|flagmode-intro|
+  2. Commands.................................|flagmode-settings|
+
+==============================================================================
+INTRO                                                         *flagmode-intro*
+
+This plugin helps you enable and disable configurations using flags. Flagmode 
+comes with a basic set of functionalities allowing the user to:
+
+* Register flags with |flagmode.register|
+* Toggle a flag with |flagmode.toggle| 
+* Activate a flag with |flagmode.activate| 
+* Deactivate a flag with |flagmode.deactivate| 
+
+Here is an example of a flag called 'relative_number' that allows a user to
+toggle the relative numbering. >
+
+  require('flagmode').register('relative_number', {
+    activate   = function() vim.opt.relativenumber = true; end,
+    deactivate = function() vim.opt.relativenumber = false; end,
+  })
+<
+
+The flag can now be toggled with: >
+
+  :lua require('flagmode').toggle('relative_number')
+<
+
+==============================================================================
+COMMANDS                                                   *flagmode-commands*
+
+                                                         *flagmode.register()*
+flagmode.register({flag}, {cfg})
+
+    Registers the {flag} with the provided {cfg}. {cfg} should be a key value
+    pair of two elements: >
+
+    {
+      activate   = function() print("activate") end;
+      deactivate = function() print("deactivate") end;
+    }
+<
+
+                                                         *flagmode.activate()*
+flagmode.activate({flag})
+
+    Activates the {flag} by calling the configured `activate` function.
+
+                                                       *flagmode.deactivate()*
+flagmode.deactivate({flag})
+
+    Deactivates the {flag} by calling the configured `deactivate` function.
+
+                                                           *flagmode.toggle()*
+flagmode.toggle({flag})
+
+    Activates or deactivates the flag depending on its state.
+
+vim: ft=help tw=78 et ts=2 sw=2 sts=2 norl
