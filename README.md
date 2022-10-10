@@ -12,10 +12,10 @@ Here is an example of a flag called `relative_number` that allows a user to
 toggle the relative numbering.
 
 ```lua
-  require('flagmode').register('relative_number', {
-    activate   = function() vim.opt.relativenumber = true; end,
-    deactivate = function() vim.opt.relativenumber = false; end,
-  })
+require('flagmode').register('relative_number', {
+  activate   = function() vim.opt.relativenumber = true; end,
+  deactivate = function() vim.opt.relativenumber = false; end,
+})
 ```
 
 The flag can now be toggled with:
@@ -24,7 +24,7 @@ The flag can now be toggled with:
 :lua require('flagmode').toggle('relative_number')
 ```
 
-## Install
+## Installing
 
 Flagmode requires Neovim and follows the standard runtime package structure. 
 It is possible to install it with all popular package managers:
