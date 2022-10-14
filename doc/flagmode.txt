@@ -5,7 +5,8 @@
 CONTENTS                                                   *flagmode-contents*
 
   1. Intro....................................|flagmode-intro|
-  2. Commands.................................|flagmode-settings|
+  2. Commands.................................|flagmode-commands|
+  2. API......................................|flagmode-api|
 
 ==============================================================================
 INTRO                                                         *flagmode-intro*
@@ -14,9 +15,9 @@ This plugin helps you enable and disable configurations using flags. Flagmode
 comes with a basic set of functionalities allowing the user to:
 
 * Register flags with |flagmode.register|
-* Toggle a flag with |flagmode.toggle| 
-* Activate a flag with |flagmode.activate| 
-* Deactivate a flag with |flagmode.deactivate| 
+* Toggle a flag with |flagmode.toggle| or |:FlagToggle|
+* Activate a flag with |flagmode.activate| or |:FlagActivate|
+* Deactivate a flag with |flagmode.deactivate| or |:FlagDeactivate|
 
 Here is an example of a flag called 'relative_number' that allows a user to
 toggle the relative numbering. >
@@ -29,11 +30,29 @@ toggle the relative numbering. >
 
 The flag can now be toggled with: >
 
-  :lua require('flagmode').toggle('relative_number')
+  :FlagToggle flagmode
 <
 
 ==============================================================================
 COMMANDS                                                   *flagmode-commands*
+
+                                                                 *:FlagToggle*
+:FlagToggle {flag}
+
+    Activates or deactivates the flag depending on its state.
+
+                                                               *:FlagActivate*
+:FlagActivate {flag}
+
+    Activates the {flag} by calling the configured `activate` function.
+
+                                                             *:FlagDeactivate*
+:FlagDeactivate {flag}
+
+    Deactivates the {flag} by calling the configured `deactivate` function.
+
+==============================================================================
+API                                                             *flagmode-api*
 
                                                          *flagmode.register()*
 flagmode.register({flag}, {cfg})
