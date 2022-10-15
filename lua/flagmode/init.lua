@@ -1,5 +1,7 @@
 local M = {};
 
+local notify_fn = vim.notify_once or vim.notify
+
 M._configs = {}
 M._flags = {}
 
@@ -11,12 +13,12 @@ end
 -- Activates a flag by calling the 'activate' function handler.
 M.activate = function(flag)
   if M._configs[flag] == nil then
-    print('flag', flag, 'is not configured')
+    notify_fn(string.format('flag %s is not configured', flag), vim.log.levels.WARN)
     return
   end
 
   if M._flags[flag] ~= nil then
-    print('flag', flag, 'is already active')
+    notify_fn(string.format('flag %s is already active', flag), vim.log.levels.WARN)
     return
   end
 
@@ -27,12 +29,12 @@ end
 -- Deactivates a flag by calling the 'deactivate' function handler.
 M.deactivate = function(flag)
   if M._configs[flag] == nil then
-    print('flag', flag, 'is not configured')
+    notify_fn(string.format('flag %s is not configured', flag), vim.log.levels.WARN)
     return
   end
 
   if M._flags[flag] == nil then
-    print('flag', flag, 'is not active')
+    notify_fn(string.format('flag %s is not active', flag), vim.log.levels.WARN)
     return
   end
 
@@ -43,7 +45,7 @@ end
 -- Toggles a flag by activating or deactivating it.
 M.toggle = function(flag)
   if M._configs[flag] == nil then
-    print('flag', flag, 'is not configured')
+    notify_fn(string.format('flag %s is not configured', flag), vim.log.levels.WARN)
     return
   end
 
