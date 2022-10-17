@@ -37,4 +37,4 @@ It is possible to install it with all popular package managers:
 ## Usage
 
 The documentation can be found at [doc/flagmode.txt](doc/flagmode.txt). You can 
-also use the `:help flagmode` command inside of Neovim.
+also use the `:help flagmode.nvim` command inside of Neovim.

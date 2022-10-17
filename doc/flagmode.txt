@@ -6,7 +6,7 @@ CONTENTS                                                   *flagmode-contents*
 
   1. Intro....................................|flagmode-intro|
   2. Commands.................................|flagmode-commands|
-  2. API......................................|flagmode-api|
+  3. API......................................|flagmode-api|
 
 ==============================================================================
 INTRO                                                         *flagmode-intro*
@@ -61,8 +61,8 @@ flagmode.register({flag}, {cfg})
     pair of two elements: >
 
     {
-      activate   = function() print("activate") end;
-      deactivate = function() print("deactivate") end;
+      activate   = function() print("activate") end,
+      deactivate = function() print("deactivate") end,
     }
 <
 
