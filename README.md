@@ -21,7 +21,7 @@ require('flagmode').register('relative_number', {
 The flag can now be toggled with:
 
 ```
-:lua require('flagmode').toggle('relative_number')
+:FlagToggle relative_number
 ```
 
 ## Installing
