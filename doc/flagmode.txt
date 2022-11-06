@@ -30,7 +30,7 @@ toggle the relative numbering. >
 
 The flag can now be toggled with: >
 
-  :FlagToggle flagmode
+  :FlagToggle relative_number
 <
 
 ==============================================================================
